@@ -40,6 +40,7 @@ def prepare(module, options):
         ":platform:clock",
         ":platform:core",
         ":platform:gpio",
+        ":platform:i2c",
         ":platform:spi",
         ":platform:uart:0",
         ":driver:st7586s")

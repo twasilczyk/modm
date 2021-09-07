@@ -36,6 +36,14 @@ using SpiMaster = modm::platform::SpiMaster;
 
 }  // namespace spi
 
+namespace i2c {
+
+using Scl = GpioD0;
+using Sda = GpioD1;
+using I2cMaster = modm::platform::I2cMaster;
+
+}  // namespace i2c
+
 namespace DisplayGpio {
 
 using DC = GpioD6;
@@ -61,6 +69,9 @@ initialize() {
 	spi::SpiMaster::initialize<SystemClock, 4_MHz>();
 	// Clock is high when inactive, data is sampled on clock trailing edge.
 	spi::SpiMaster::setDataMode(spi::SpiMaster::DataMode::Mode3);
+
+	i2c::I2cMaster::connect<i2c::Scl::Scl, i2c::Sda::Sda>(i2c::I2cMaster::PullUps::Internal);
+	i2c::I2cMaster::initialize<SystemClock, 400_kHz>();
 
 	enableInterrupts();
 

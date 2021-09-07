@@ -1,0 +1,10 @@
+<library>
+  <extends>modm:srxe</extends>
+  <options>
+    <option name="modm:build:build.path">../../../build/srxe/accelerometer</option>
+  </options>
+  <modules>
+    <module>modm:build:scons</module>
+    <module>modm:driver:mma7660</module>
+  </modules>
+</library>
